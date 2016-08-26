@@ -1,0 +1,1 @@
+# resource-js-smart-app-banner
