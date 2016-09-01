@@ -135,10 +135,10 @@ SmartAppBanner.prototype.install = function() {
 SmartAppBanner.prototype.getLink = function(type) {
     var os = {
         ios: {
-            link: "itms-apps://itunes.apple.com/br/app/id370790558?mt=8&ct=utm_source%3DSiteMobile%26utm_medium%3DBanner%26utm_campaign%3DSmartBanner"
+            link: "itms-apps://"
         },
         android: {
-            link: "market://details?id=com.b2w.submarino&hl=pt_BR&referrer=utm_source%3DSiteMobile%26utm_medium%3DBanner%26utm_campaign%3DSmartBanner"
+            link: "market://"
         }
     };
 
