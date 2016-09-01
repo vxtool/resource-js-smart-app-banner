@@ -11,9 +11,9 @@
  * @property {object} config
  *
  */
-var SmartAppBanner = function(component, callback){
+var SmartAppBanner = function(component, callback, cookie){
   var me = this;
-  this.cookie     = _.cookie; // global
+  this.cookie     = cookie; // global
   this.component  = component;
   this.type       = this.getType();
   this.link       = this.getLink(this.type);
@@ -56,11 +56,11 @@ SmartAppBanner.prototype.getType = function(){
   var type = false;
 
   if ( navigator.userAgent.match(/Safari/i) && navigator.userAgent.match(/iPhone|iPod|iPad/i) ) {
-      type = "ios";
+    type = "ios";
   } else {
-      if ( navigator.userAgent.match(/Android/i) ) {
-          type = "android";
-      }
+    if ( navigator.userAgent.match(/Android/i) ) {
+      type = "android";
+    }
   }
 
   return type;
@@ -133,17 +133,20 @@ SmartAppBanner.prototype.install = function() {
  *
  */
 SmartAppBanner.prototype.getLink = function(type) {
-    var os = {
-        ios: {
-            link: "itms-apps://"
-        },
-        android: {
-            link: "market://"
-        }
-    };
+  if(!type) { return false; }
+
+  var os = {
+      ios: {
+          link: "itms-apps://"
+      },
+      android: {
+          link: "market://"
+      }
+  };
 
     return os[type].link;
 };
+
 /**
  * Create new instance
  *
@@ -151,8 +154,10 @@ SmartAppBanner.prototype.getLink = function(type) {
  * @property {function} cb
  *
  */
+var component = {
 
-
-
-
-new SmartAppBanner(this.component, cb);
+}
+var cb = function(){};
+var _ = {};
+_.cookie = {};
+new SmartAppBanner(component, cb, _.cookie);
