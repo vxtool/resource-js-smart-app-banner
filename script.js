@@ -78,7 +78,7 @@ SmartAppBanner.prototype.template = function(){
         '<div class="smartbanner-container">',
             '<button class="smartbanner-close" type="button">×</button>',
             '<figure class="smartbanner-image">',
-              '<img class="smartbanner-image-icon" src="http://images.submarino.io/spacey/2016/08/30/logo-suba.png" width="50" height="50" />',
+              '<img class="smartbanner-image-icon" src="http://placehold.it/100x100/" width="50" height="50" />',
             '</figure>',
             '<div class="smartbanner-info">',
                 '<span class="smartbanner-info-text">'+this.component.label+'</span>',
@@ -147,6 +147,19 @@ SmartAppBanner.prototype.getLink = function(type) {
     return os[type].link;
 };
 
+// start Mockup
+var component = {
+  label: 'Texto que vai aparecer'
+}
+var cb = function(template){
+  document.body.innerHTML = template;
+};
+var _ = {};
+_.cookie = {};
+_.cookie.set = function(){};
+_.cookie.get = function(){};
+// end Mockup
+
 /**
  * Create new instance
  *
@@ -154,10 +167,4 @@ SmartAppBanner.prototype.getLink = function(type) {
  * @property {function} cb
  *
  */
-var component = {
-
-}
-var cb = function(){};
-var _ = {};
-_.cookie = {};
 new SmartAppBanner(component, cb, _.cookie);
